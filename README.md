@@ -52,6 +52,3 @@ Laut Aufgabenstellung wäre auch JSF + CDI möglich gewesen, ich habe mich aber 
 - Validierung mit Fehlermeldungen im Formular
 - Bearbeiten/Löschen (aktuell nur Anlegen + Ergebnis ändern)
 - Tests
-
-Entspricht den übrigen, noch nicht umgesetzten Stories aus dem Backlog
-(Übersichten für Tester:innen/Testmanager:innen, einzelne Testschritte).
