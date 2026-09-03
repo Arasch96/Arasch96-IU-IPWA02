@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Anforderungen - Require4Testing</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+</head>
+<body>
+
+<nav th:replace="~{fragments/navbar :: navbar}"></nav>
+
+<div class="container">
+
+    <h1>Anforderungen</h1>
+
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Titel</th>
+            <th>Beschreibung</th>
+            <th>Anzahl Testfälle</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="req : ${requirements}">
+            <td th:text="${req.id}"></td>
+            <td th:text="${req.title}"></td>
+            <td th:text="${req.description}"></td>
+            <td th:text="${#lists.size(req.testCases)}"></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <h2>Neue Anforderung anlegen</h2>
+
+    <form th:action="@{/requirements}" th:object="${requirement}" method="post" class="mb-5">
+        <div class="mb-3">
+            <label class="form-label">Titel</label>
+            <input type="text" class="form-control" th:field="*{title}" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Beschreibung</label>
+            <textarea class="form-control" th:field="*{description}" rows="3"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Speichern</button>
+    </form>
+
+</div>
+
+</body>
+</html>
